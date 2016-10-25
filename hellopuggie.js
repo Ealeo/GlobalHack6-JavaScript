@@ -1,71 +1,71 @@
-      			var response1 = false; //Used to confirm that the user pressed okay so that the game advances to the next alert/prompt.
-			var response2; //Used to receive user input and relay that information.
-			var response3; //Possibly being used to prevent stale data from for loops.
-			var positiveKeywords = ["good", "great", "awesome", "amazing", "cool", "fine"];
-			var negativeKeywords = ["bad", "awful", "terrible", "horrible", "sad", "sick", "lonely", "depressed", "hurt", "bad grades", "lost", "job", "attack", "money", "hungry", "dead", "angry",
-									"scared", "embarassed", "afraid", "worried", "lose our house", "divorce"]; //MORE KEYWORDS CAN BE ADDED TO BOTH OF THESE AND THE CODE WILL STILL FUNCTION CORRECTLY
-			var typeFound;
-			var name;
-			var negativeFlags = 0; //If the user exceeds 5 negative flags, a counselor or authority figure will be contacted.
-			var keyword;
-			var feelingKeyword; //Used so that it's possible to refer back to the data that was in the original keyword variable.
-			var reasonKeyword;
-			var haveNotTalkedKeyword;
+var response1 = false; //Used to confirm that the user pressed okay so that the game advances to the next alert/prompt.
+var response2; //Used to receive user input and relay that information.
+var response3; //Possibly being used to prevent stale data from for loops.
+var positiveKeywords = ["good", "great", "awesome", "amazing", "cool", "fine"];
+var negativeKeywords = ["bad", "awful", "terrible", "horrible", "sad", "sick", "lonely", "depressed", "hurt", "bad grades", "lost", "job", "attack", "money", "hungry", "dead", "angry",
+			"scared", "embarassed", "afraid", "worried", "lose our house", "divorce"]; //MORE KEYWORDS CAN BE ADDED TO BOTH OF THESE AND THE CODE WILL STILL FUNCTION CORRECTLY
+var typeFound;
+var name;
+var negativeFlags = 0; //If the user exceeds 5 negative flags, a counselor or authority figure will be contacted.
+var keyword;
+var feelingKeyword; //Used so that it's possible to refer back to the data that was in the original keyword variable.
+var reasonKeyword;
+var haveNotTalkedKeyword;
 			
-			Introduction(); 
-			LovelyWeatherTodayIsntIt(); //Last question before the keyword arrays come into effect.
-			DetermineWhatKeywordsUsed();
-			DivideGame();
-			DetermineWhatKeywordsUsed();
-			InvestigationAboutOriginalKeyword();
+Introduction(); 
+LovelyWeatherTodayIsntIt(); //Last question before the keyword arrays come into effect.
+DetermineWhatKeywordsUsed();
+DivideGame();
+DetermineWhatKeywordsUsed();
+InvestigationAboutOriginalKeyword();
 
 			
-			function Introduction()
-			{
-				response1 = confirm("Hi! I'm so happy I can finally talk to a real person! My name is Puggie the Pug! My owner is letting me use the computer for the first time in my life! The internet is such a cool invention! How did you humans ever think of such an incredible thing!");
-				//This is the general introduction, it will allow the user to get a general introduction to the game!
-				if (response1 == true) //if they press okay, it returns true.
-				{
-					response2 = prompt("Well, now that you know my name, what's yours?");
-					name = response2;
-					response1 = false;
-					return response2;
-				}
-				else //this will happen if they press cancel or attempt to exit out of the alert box!
-				{
-					alert("Aw, you don't want to talk with me? I don't think my owner will let me use a computer again... Goodbye!");
-					return 0;
-				}
-			}
+function Introduction()
+{
+	response1 = confirm("Hi! I'm so happy I can finally talk to a real person! My name is Puggie the Pug! My owner is letting me use the computer for the first time in my life! The internet is such a cool invention! How did you humans ever think of such an incredible thing!");
+	//This is the general introduction, it will allow the user to get a general introduction to the game!
+	if (response1 == true) //if they press okay, it returns true.
+	{
+		response2 = prompt("Well, now that you know my name, what's yours?");
+		name = response2;
+		response1 = false;
+		return response2;
+	}
+	else //this will happen if they press cancel or attempt to exit out of the alert box!
+	{
+		alert("Aw, you don't want to talk with me? I don't think my owner will let me use a computer again... Goodbye!");
+		return 0;
+	}
+}
 	
-			function LovelyWeatherTodayIsntIt() //Asks the user how they are...
-			{
-				if(response2 != null)
-				{
-					response1 = confirm("So, your name is " + response2 + "? That's such a wonderful name! You should be proud of it!");
-					if(response1 == true)
-					{
-						response2 = prompt("So, " + response2 + ", How are you feeling today? Try to spell the word correctly! Otherwise, I won't be able to understand you! Also, be nice to me and use an easy word because I'm not as smart as you amazing humans.");
-						return response2;
-					}
-					else
-					{
-						alert("Aw, you don't want to talk with me? I don't think my owner will let me use a computer again... Goodbye!");
-						return 0;
-					}
-				}
-			}
+function LovelyWeatherTodayIsntIt() //Asks the user how they are...
+{
+	if(response2 != null)
+	{
+		response1 = confirm("So, your name is " + response2 + "? That's such a wonderful name! You should be proud of it!");
+		if(response1 == true)
+		{
+			response2 = prompt("So, " + response2 + ", How are you feeling today? Try to spell the word correctly! Otherwise, I won't be able to understand you! Also, be nice to me and use an easy word because I'm not as smart as you amazing humans.");
+			return response2;
+		}
+		else
+		{
+			alert("Aw, you don't want to talk with me? I don't think my owner will let me use a computer again... Goodbye!");
+			return 0;
+		}
+	}
+}
 			
-			function DetermineWhatKeywordsUsed()
-			{
-				var found = false;
-				var size;
-				response3 = response2;
+function DetermineWhatKeywordsUsed()
+{
+	var found = false;
+	var size;
+	response3 = response2;
 				
-				while(!found) 	//The following is a sort that finds keywords.
-				{
-					//This sort will work for any response in this program that searches for keywords.
-					size = positiveKeywords.length;
+	while(!found) 	//The following is a sort that finds keywords.
+	{
+		//This sort will work for any response in this program that searches for keywords.
+		size = positiveKeywords.length;
 					for(var x=0; x < size; x++)
 					{
 						if(response2.includes(positiveKeywords[x]))
