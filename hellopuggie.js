@@ -1,4 +1,4 @@
-      var response1 = false; //Used to confirm that the user pressed okay so that the game advances to the next alert/prompt.
+      			var response1 = false; //Used to confirm that the user pressed okay so that the game advances to the next alert/prompt.
 			var response2; //Used to receive user input and relay that information.
 			var response3; //Possibly being used to prevent stale data from for loops.
 			var positiveKeywords = ["good", "great", "awesome", "amazing", "cool", "fine"];
